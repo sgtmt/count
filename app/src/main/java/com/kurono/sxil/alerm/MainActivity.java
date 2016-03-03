@@ -15,12 +15,12 @@ public class MainActivity extends AppCompatActivity {
     TextView mtext;
     @Bind(R.id.button)
     Button button;
-    int d = 0;
+    int atai = 0;
     @OnClick(R.id.button)
 
     void onClickButton(Button button) {
-        d++;
-       mtext.setText(String.valueOf(d));
+        atai++;
+       mtext.setText(String.valueOf(atai));
 
     }
     protected void onCreate(Bundle savedInstanceState) {
