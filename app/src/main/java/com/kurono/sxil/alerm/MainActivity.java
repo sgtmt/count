@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     TextView mtext;
     @Bind(R.id.button)
     Button button;
-    int atai = 1;
+    int atai = 0;
     @OnClick(R.id.button)
 
     void onClickButton(Button button) {
