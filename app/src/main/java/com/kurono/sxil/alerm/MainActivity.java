@@ -13,16 +13,29 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
     @Bind(R.id.text)
     TextView mtext;
-    @Bind(R.id.button)
-    Button button;
+    @Bind(R.id.sadBtn)
+    Button sadBtn;
+    @Bind(R.id.addBtn)
+    Button addbutton;
     int atai = 0;
-    @OnClick(R.id.button)
 
-    void onClickButton(Button button) {
-        atai++;
-       mtext.setText(String.valueOf(atai));
 
+    @OnClick({R.id.addBtn,R.id.sadBtn})
+
+    void  onAtaiChangeBtn(Button changeBtn){
+        switch (changeBtn.getId()){
+            case R.id.addBtn:
+               atai++;
+                break;
+            case R.id.sadBtn:
+                atai--;
+                break;
+            default:
+
+        }
+        mtext.setText(String.valueOf(atai));
     }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
