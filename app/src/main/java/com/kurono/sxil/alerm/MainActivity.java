@@ -23,16 +23,21 @@ public class MainActivity extends AppCompatActivity {
     @OnClick({R.id.addBtn,R.id.sadBtn})
 
     void  onAtaiChangeBtn(Button changeBtn){
-        switch (changeBtn.getId()){
+
+
+        switch (changeBtn.getId()) {
             case R.id.addBtn:
-               atai++;
+                atai++;
                 break;
             case R.id.sadBtn:
-                atai--;
+                if(atai <=  0){
+                }else {
+                    atai--;
+                }
                 break;
             default:
-
         }
+
         mtext.setText(String.valueOf(atai));
     }
 
@@ -41,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+        mtext.setTextSize(20);
 
 
         }
