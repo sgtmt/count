@@ -6,15 +6,11 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
-    </style>
-
-    <style name="AppThemes" parent="android:Theme.Material.Light">
-        <!-- 実際はいくつかここに記述してありますが本稿と関係ないので省略 -->
         <item name="android:colorControlHighlight">@color/highlight_color</item>
         <item name="android:colorButtonNormal">@color/material_btn</item>
-
     </style>
+
+
 
     <style name="AppTheme.Button" parent="android:Widget.Material.Button">
         <!-- サイズと文字装飾の設定をしているだけなので本稿とは無関係 -->

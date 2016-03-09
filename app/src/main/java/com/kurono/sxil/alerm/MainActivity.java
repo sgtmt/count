@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
-        mtext.setTextSize(20);
+        mtext.setTextSize(100);
 
 
         }
