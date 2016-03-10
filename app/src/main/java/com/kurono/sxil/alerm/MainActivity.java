@@ -12,12 +12,14 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
     @Bind(R.id.text)
-    TextView mtext;
+        TextView mtext;
     @Bind(R.id.sadBtn)
-    Button sadBtn;
+        Button sadBtn;
     @Bind(R.id.addBtn)
-    Button addbutton;
-    int atai = 0;
+        Button addbutton;
+    @Bind(R.id.clearBtn)
+            Button clearBtn;
+    public    int atai = 0;
 
 
     @OnClick({R.id.addBtn,R.id.sadBtn})
@@ -27,12 +29,21 @@ public class MainActivity extends AppCompatActivity {
 
         switch (changeBtn.getId()) {
             case R.id.addBtn:
+                data();
                 atai++;
                 break;
             case R.id.sadBtn:
+                data();
                 if(atai <=  0){
                 }else {
                     atai--;
+                }
+                break;
+            case R.id.clearBtn:
+                data();
+                if(atai!=0){
+                    atai =0;
+                    clearBtn.setEnabled(false);
                 }
                 break;
             default:
@@ -50,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+   public void  data(){
+       if (this.atai !=0){
+           clearBtn.setEnabled(true);
+       }
+   }
 
     }
 
