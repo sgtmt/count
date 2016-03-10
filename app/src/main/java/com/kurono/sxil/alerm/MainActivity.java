@@ -8,6 +8,7 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -19,31 +20,44 @@ public class MainActivity extends AppCompatActivity {
         Button addbutton;
     @Bind(R.id.clearBtn)
             Button clearBtn;
-    public    int atai = 0;
+   int atai = 0;
 
+    private void onClickAdd(){
+        atai++;
 
-    @OnClick({R.id.addBtn,R.id.sadBtn})
+    }
+    private void onClickSad(){
+        atai--;
+    }
+    private void onClickClear(){
+        if(atai==0) {
+            clearBtn.setEnabled(false);
+        }else {
+            clearBtn.setEnabled(true);
+        }
+    }
+    @OnClick({R.id.addBtn,R.id.sadBtn,R.id.clearBtn})
 
     void  onAtaiChangeBtn(Button changeBtn){
 
 
         switch (changeBtn.getId()) {
             case R.id.addBtn:
-                data();
-                atai++;
+                onClickAdd();
+                onClickClear();
                 break;
             case R.id.sadBtn:
-                data();
+
                 if(atai <=  0){
                 }else {
-                    atai--;
+                    onClickSad();
+                    onClickClear();
                 }
                 break;
             case R.id.clearBtn:
-                data();
                 if(atai!=0){
                     atai =0;
-                    clearBtn.setEnabled(false);
+                    onClickClear();
                 }
                 break;
             default:
@@ -51,21 +65,42 @@ public class MainActivity extends AppCompatActivity {
 
         mtext.setText(String.valueOf(atai));
     }
+    @OnLongClick({R.id.addBtn,R.id.sadBtn,R.id.clearBtn})
+        void  onLongBtn(Button button) {
 
+        switch (button.getId()) {
+            case R.id.addBtn:
+                onClickAdd();
+                onClickClear();
+                break;
+            case R.id.sadBtn:
+
+                if (atai <= 0) {
+                } else {
+                    onClickSad();
+                    onClickClear();
+                }
+                break;
+            case R.id.clearBtn:
+                if (atai != 0) {
+                    atai = 0;
+                    onClickClear();
+                }
+                break;
+            default:
+        }
+
+    }
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        onClickClear();
         ButterKnife.bind(this);
         mtext.setTextSize(100);
 
 
         }
-   public void  data(){
-       if (this.atai !=0){
-           clearBtn.setEnabled(true);
-       }
-   }
+
 
     }
 
