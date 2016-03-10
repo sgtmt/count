@@ -2,6 +2,7 @@ package com.kurono.sxil.alerm;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     void  onAtaiChangeBtn(Button changeBtn){
 
-
+//
         switch (changeBtn.getId()) {
             case R.id.addBtn:
                 onClickAdd();
@@ -66,36 +67,42 @@ public class MainActivity extends AppCompatActivity {
         mtext.setText(String.valueOf(atai));
     }
     @OnLongClick({R.id.addBtn,R.id.sadBtn,R.id.clearBtn})
-        void  onLongBtn(Button button) {
 
-        switch (button.getId()) {
+   boolean  onLongAtaiChangeBtn(Button changeBtn){
+
+//
+        switch (changeBtn.getId()) {
             case R.id.addBtn:
                 onClickAdd();
                 onClickClear();
                 break;
             case R.id.sadBtn:
 
-                if (atai <= 0) {
-                } else {
+                if(atai <=  0){
+                }else {
                     onClickSad();
                     onClickClear();
                 }
                 break;
             case R.id.clearBtn:
-                if (atai != 0) {
-                    atai = 0;
+                if(atai!=0){
+                    atai =0;
                     onClickClear();
                 }
                 break;
             default:
         }
 
+        mtext.setText(String.valueOf(atai));
+        return  true;
     }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        onClickClear();
+
         ButterKnife.bind(this);
+        onClickClear();
         mtext.setTextSize(100);
 
 
