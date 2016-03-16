@@ -53,7 +53,7 @@
         <Button
             android:id="@+id/clearBtn"
             style="@style/AppTheme.Button"
-            android:text="Button Enabled"
+            android:text="reset"
             android:layout_width="316dp"
             android:layout_height="60dp"
             android:layout_below="@+id/text"
